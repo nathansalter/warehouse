@@ -19,7 +19,7 @@ class RoutePath implements \IteratorAggregate
 	
 	/**
 	 * 
-	 * @param string $pickingStation
+	 * @param PickingStation $pickingStation
 	 */
 	public function __construct($pickingStation = null/*, RouteAction ...$path*/)
 	{
@@ -28,7 +28,7 @@ class RoutePath implements \IteratorAggregate
 			$this->setPickingStation($pickingStation);
 		}
 		for($arg_num=1; $arg_num < func_num_args(); $arg_num++) {
-			$this->addStep(func_get_arg($arg_num));
+			$this->addAction(func_get_arg($arg_num));
 		}
 	}
 	
@@ -79,6 +79,7 @@ class RoutePath implements \IteratorAggregate
 	 * 
 	 * @param int $x
 	 * @param int $y
+	 * @return bool
 	 */
 	public function hasAction($x, $y)
 	{
@@ -95,6 +96,7 @@ class RoutePath implements \IteratorAggregate
 	 * 
 	 * @param int $x
 	 * @param int $y
+	 * @return RouteAction
 	 */
 	public function getAction($x, $y)
 	{

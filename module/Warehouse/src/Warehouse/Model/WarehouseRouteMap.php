@@ -2,7 +2,7 @@
 
 namespace Warehouse\Model;
 
-class WarehouseMap
+class WarehouseRouteMap
 {
 	
 	/**
@@ -115,7 +115,7 @@ class WarehouseMap
 			return $route;
 		}
 		
-		// Check that 
+		// Check that we're going the correct way
 		if($this->getCost($fromX, $fromY) >= $this->getCost($toX, $toY)) {
 			return null;
 		}
