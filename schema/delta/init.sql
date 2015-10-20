@@ -53,6 +53,12 @@ CREATE TABLE `warehouse_station` (
 	`map_y` INT UNSIGNED NOT NULL
 );
 
+CREATE TABLE `warehouse_map` (
+	`origin_x` INT UNSIGNED NOT NULL PRIMARY KEY,
+	`origin_y` INT UNSIGNED NOT NULL PRIMARY KEY,
+	`map` BLOB NOT NULL
+);
+
 --
 -- Add product location table
 --

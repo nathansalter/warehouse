@@ -1,8 +1,11 @@
 {
 	"name": "nathansalter/warehouse",
 	"description": "Implementation of the TSP using a warehouse as a real-world example"
-	"requires": {
+	"require": {
 		"php": ">=5.5",
 		"zendframework/zendframework": "~2.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4.3"
 	}
 }

@@ -13,16 +13,45 @@ class Warehouse
 	 */
 	private $map;
 	
-	public function __construct($sizeX, $sizeY)
+	public function __construct()
 	{
-		$this->map = array_fill(0, $sizeX, array_fill(0, $sizeY, self::PASSABLE));
+		$this->map = [];
 	}
 	
+	/**
+	 * .
+	 * @param int $x
+	 * @param int $y
+	 * @return $this
+	 */
+	public function setPassable($x, $y)
+	{
+		if(! isset($this->map[$x])) {
+			$this->map[$x] = [];
+		}
+		$this->map[$x][$y] = self::PASSABLE;
+		return $this;
+	}
+	
+	/**
+	 * 
+	 * @param int $x
+	 * @param int $y
+	 * @return bool
+	 */
 	public function isPassable($x, $y)
 	{
 		return $this->map[$x][$y] === self::PASSABLE;
 	}
 	
+	/**
+	 * 
+	 * @param int $x
+	 * @param int $y
+	 * @param ProductBin $bin
+	 * @throws \InvalidArgumentException
+	 * @return $this
+	 */
 	public function addBin($x, $y, ProductBin $bin)
 	{
 		if(! $this->isPassable($x, $y)) {
@@ -32,6 +61,14 @@ class Warehouse
 		return $this;
 	}
 	
+	/**
+	 * 
+	 * @param int $x
+	 * @param int $y
+	 * @param PickingStation $station
+	 * @throws \InvalidArgumentException
+	 * @return $this
+	 */
 	public function addPickingStation($x, $y, PickingStation $station)
 	{
 		if(! $this->isPassable($x, $y)) {

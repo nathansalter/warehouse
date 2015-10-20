@@ -2,6 +2,7 @@
 
 namespace Warehouse;
 
-class Module {
+class Module 
+{
 	
 }
